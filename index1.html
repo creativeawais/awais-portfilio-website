@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awais's Professional Portfolio</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset CSS */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: black;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            color: black;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: red;
+        }
+
+        /* Banner Section */
+        .banner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 50px 0;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .banner-content {
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
+
+        .banner h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .banner p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .banner img {
+            flex: 1 1 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+         . .banner button {
+            background-color: darkred;
+        }
+
+        /* Services Section */
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 50px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .service-box {
+            background-color: #f7f7f7;
+            padding: 20px;
+            width: 30%;
+            text-align: center;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .service-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .service-box h3 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .service-box p {
+            font-size: 1em;
+            color: #333;
+        }
+
+        /* About Us Section */
+        .about {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 50px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .about-image {
+            flex: 1 1 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .about-content {
+            flex: 1 1 100%;
+            max-width: 100%;
+            padding-left: 0;
+        }
+
+        .about-content h2 {
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .about-content button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .about-content button:hover {
+            background-color: darkred;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 50px 0;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .testimonials h2 {
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .testimonial-slide {
+            display: none;
+            font-style: italic;
+            font-size: 1.2em;
+            max-width: 80%;
+            margin: 0 auto 20px auto;
+        }
+
+        .testimonial-slide.active {
+            display: block;
+        }
+
+        /* Slider Navigation */
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-nav button {
+            background-color: rgba(0,0,0,0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .slider-nav button:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        /* Contact Us Section */
+        .contact {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            padding: 50px 0;
+        }
+
+        .contact-info {
+            flex: 1 1 100%;
+            max-width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .contact-info p i {
+            margin-right: 10px;
+            color: red;
+        }
+
+        .contact-form {
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact input, .contact textarea {
+            margin-bottom: 15px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+        }
+
+        .contact textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        .contact button {
+            background-color: red;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact button:hover {
+            background-color: darkred;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 600px) {
+            .banner {
+                flex-wrap: nowrap;
+            }
+
+            .banner-content {
+                flex: 1;
+                max-width: 60%;
+            }
+
+            .banner img {
+                flex: 1;
+                max-width: 35%;
+            }
+
+            .about {
+                flex-wrap: nowrap;
+            }
+
+            .about-image, .about-content {
+                flex: 1;
+                max-width: 48%;
+            }
+
+            .contact-info, .contact-form {
+                flex: 1;
+                max-width: 48%;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .services {
+                flex-wrap: nowrap;
+            }
+
+            .service-box {
+                width: 30%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner Section -->
+    <section class="banner" id="home">
+        <div class="banner-content">
+            <h1>Hi, I am Awais</h1>
+            <p>I am a WordPress developer with extensive experience in creating custom websites.</p>
+           
+        </div>
+        <img src="about-part-1.png" alt="Awais Image">
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="service-box">
+            <i class="fab fa-wordpress fa-3x" style="color: #21759b; margin-bottom: 15px;"></i>
+            <h3>WordPress Developer</h3>
+            <p>Expert in building and customizing WordPress websites, themes, and plugins to meet your business needs.</p>
+        </div>
+        <div class="service-box">
+            <i class="fab fa-shopify fa-3x" style="color: #96bf48; margin-bottom: 15px;"></i>
+            <h3>Shopify Expert</h3>
+            <p>Proficient in setting up and optimizing Shopify stores for online success and increased sales.</p>
+        </div>
+        <div class="service-box">
+            <i class="fas fa-laptop-code fa-3x" style="color: #333; margin-bottom: 15px;"></i>
+            <h3>Custom Websites</h3>
+            <p>Creating tailor-made websites that are responsive, user-friendly, and designed to achieve your specific goals.</p>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about" id="about">
+        <div class="about-image">
+            <img src="about-part-1.png" alt="About Awais">
+        </div>
+        <div class="about-content">
+            <h2>About Me</h2>
+            <p>I am a skilled WordPress developer with years of experience in building responsive and user-friendly websites. My passion is to help businesses establish a strong online presence through customized solutions and innovative designs.</p>
+            <button onclick="window.location.href='#contact'">Learn More</button>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonial-slide active">
+            <p>"Great experience working with Awais! Highly recommend."</p>
+        </div>
+        <div class="testimonial-slide">
+            <p>"Awais is a top-notch developer who delivers quality work."</p>
+        </div>
+        <div class="testimonial-slide">
+            <p>"Professional and reliable service, will hire again."</p>
+        </div>
+        <div class="testimonial-slide">
+            <p>"Exceptional skills in WordPress development. Very satisfied."</p>
+        </div>
+        <div class="testimonial-slide">
+            <p>"Outstanding service and great communication throughout the project."</p>
+        </div>
+        <div class="slider-nav">
+            <button id="prev"><i class="fas fa-chevron-left"></i></button>
+            <button id="next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section class="contact" id="contact">
+        <div class="contact-info">
+            <p><i class="fas fa-phone-alt"></i> +123-456-7890</p>
+            <p><i class="fas fa-envelope"></i> awais@example.com</p>
+        </div>
+        <div class="contact-form">
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="text" placeholder="Subject" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- JavaScript for Testimonials Slider -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const totalSlides = slides.length;
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        // Auto Slide
+        let slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+
+        // Manual Controls
+        nextButton.addEventListener('click', () => {
+            nextSlide();
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        });
+
+        prevButton.addEventListener('click', () => {
+            prevSlide();
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        });
+    </script>
+</body>
+</html>
